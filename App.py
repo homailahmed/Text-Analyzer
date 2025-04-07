@@ -2,12 +2,12 @@ import streamlit as st
 import re
 
 def main():
-    st.set_page_config(page_title ="Text analyzer",page_icom ="🖹",layout ="centered")
+    st.set_page_config(page_title="Text Analyzer",page_icon="🖹", layout="centered")
 
     st.markdown("""
         <style>
                 .main{ background-color: #ebeced;}
-                .stTextArea, .stTextInpit { border-radius: 10px;}
+                .stTextArea, .stTextInput { border-radius: 10px;}
                 .stButton>button { background-color: blue; color: white; border-radius: 10px; padding: 10px}
         </style>
                          
@@ -30,12 +30,12 @@ def main():
         col2.metric(" 🀇 Total Charaters", char_count)
 
         #search replace filter feature
-        st.subheade("Search and Replace")
+        st.subheader("Serach and Replace")
         search_word = st.text_input("Enter a word to search:")
         replace_word = st.text_input("Enter a word to replace with:")
 
         if search_word and replace_word:
-            modified_paragraph = re.sub(rf'/b{re.escape(search_word)}/b', replace_word, paragraph)
+            modified_paragraph = re.sub(rf'\b{re.escape(search_word)}\b', replace_word, paragraph)
             st.success("Modified Paragraph")
 
         #uppercase and lowercase 
@@ -45,7 +45,7 @@ def main():
 
 
         ope_python = "Python" in paragraph
-        st.write(f"✔️ Contain 'python': {ope_python}")
+        st.write(f"✔️ Contain 'Python': {ope_python}")
         
         #vaerage length of paragraph:
         average_word_length = char_count / word_count if word_count else 0
